@@ -83,4 +83,12 @@
         immediate: true
         state: enabled
       when: firewall == "firewalld"
+
+    - name: "Allow DNS traffic"
+      ansible.posix.firewalld:
+        service: dns
+        permanent: true
+        immediate: true
+        state: enabled
+      when: firewall == "firewalld"
 ...
